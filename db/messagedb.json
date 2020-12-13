@@ -1,0 +1,164 @@
+{
+  "messages": [
+    {
+      "id": 1605649833894,
+      "mode": "ARQ",
+      "direction": "RECEIVED",
+      "type": "PING",
+      "myCALL": [
+        "DJ2LS"
+      ],
+      "myGRID": "-",
+      "dxCALL": "DN2LS",
+      "dxGRID": "-",
+      "message": "PING RECEIVED / Noise: 30 dB / Quality: 100\r",
+      "status": 0
+    },
+    {
+      "id": 1605649866468,
+      "mode": "ARQ",
+      "direction": "INFO",
+      "type": "INFO",
+      "myCALL": [
+        "DJ2LS"
+      ],
+      "myGRID": "-",
+      "dxCALL": "DN2LS",
+      "dxGRID": "-",
+      "message": "Connected to DN2LS",
+      "status": 0
+    },
+    {
+      "id": 1605649895316,
+      "mode": "ARQ",
+      "direction": "RECEIVED",
+      "type": "MESSAGE",
+      "myCALL": [
+        "DJ2LS"
+      ],
+      "myGRID": "-",
+      "dxCALL": "DN2LS",
+      "dxGRID": "-",
+      "message": "Hi, nice to meet you!\r",
+      "status": 0
+    },
+    {
+      "id": 1605649906377,
+      "mode": "ARQ",
+      "direction": "SEND",
+      "type": "MESSAGE",
+      "myCALL": [
+        "DJ2LS"
+      ],
+      "myGRID": "-",
+      "dxCALL": "DN2LS",
+      "dxGRID": "-",
+      "message": "Nice to meet you, too!",
+      "status": 0
+    },
+    {
+      "id": 1605716633094,
+      "mode": "ARQ",
+      "direction": "INFO",
+      "type": "INFO",
+      "myCALL": [
+        "DJ2LS"
+      ],
+      "myGRID": "-",
+      "dxCALL": "DN2LS",
+      "dxGRID": "-",
+      "message": "Connected to DN2LS",
+      "status": 0
+    },
+    {
+      "id": 1605729584278,
+      "mode": "FEC",
+      "direction": "SEND",
+      "type": "BROADCAST",
+      "myCALL": "DJ2LS",
+      "myGRID": "-",
+      "dxCALL": "BROADCAST",
+      "dxGRID": "-",
+      "message": "DJ2LS [JN48ea] : TEST!TEST!",
+      "status": 0
+    },
+    {
+      "id": 1605729607868,
+      "mode": "FEC",
+      "direction": "SEND",
+      "type": "BROADCAST",
+      "myCALL": "DJ2LS",
+      "myGRID": "-",
+      "dxCALL": "BROADCAST",
+      "dxGRID": "-",
+      "message": "DJ2LS [JN48ea] : TEST!TEST!TEST!TEST!TEST!TEST!",
+      "status": 0
+    },
+    {
+      "id": 1605729644600,
+      "mode": "FEC",
+      "direction": "SEND",
+      "type": "BROADCAST",
+      "myCALL": "DJ2LS",
+      "myGRID": "-",
+      "dxCALL": "BROADCAST",
+      "dxGRID": "-",
+      "message": "DJ2LS [JN48ea] : TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!",
+      "status": 0
+    },
+    {
+      "id": 1605729882451,
+      "mode": "FEC",
+      "direction": "SEND",
+      "type": "BROADCAST",
+      "myCALL": "DJ2LS",
+      "myGRID": "-",
+      "dxCALL": "BROADCAST",
+      "dxGRID": "-",
+      "message": "DJ2LS [JN48ea] : TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!TEST!",
+      "status": 0
+    },
+    {
+      "id": 1605809130429,
+      "mode": "ARQ",
+      "direction": "INFO",
+      "type": "INFO",
+      "myCALL": [
+        "DJ2LS"
+      ],
+      "myGRID": "-",
+      "dxCALL": "DN2LS",
+      "dxGRID": "-",
+      "message": "Connected to DN2LS",
+      "status": 0
+    },
+    {
+      "id": 1605809676421,
+      "mode": "ARQ",
+      "direction": "INFO",
+      "type": "INFO",
+      "myCALL": [
+        "DJ2LS"
+      ],
+      "myGRID": "-",
+      "dxCALL": "\rSTATUS",
+      "dxGRID": "-",
+      "message": "CONNECTION TO \rSTATUSFAILED!",
+      "status": 0
+    },
+    {
+      "id": 1605809786819,
+      "mode": "ARQ",
+      "direction": "INFO",
+      "type": "INFO",
+      "myCALL": [
+        "DJ2LS"
+      ],
+      "myGRID": "-",
+      "dxCALL": "DN2LS",
+      "dxGRID": "-",
+      "message": "Connected to DN2LS",
+      "status": 0
+    }
+  ]
+}

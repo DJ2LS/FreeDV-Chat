@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>DJ2LS | RFChat</title>
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- MAIN NAVBAR -->
+    <nav class="navbar fixed-top bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand"><b>DJ2LS</b> | RFChat</a>
+            <button class="btn btn-secondary" id="settingsBUTTON" type="button" data-toggle="modal" data-target="#settingsModal" onclick="loadSettings();return false">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-gear-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 0 0-5.86 2.929 2.929 0 0 0 0 5.858z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+<!-- SECONDARY NAVBAR -->
+    <nav class="navbar bg-light navbar-underline  mt-5 shadow">
+        <div class="container-fluid mt-1">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <button class="btn btn-primary mr-2" type="button" id="cqBUTTON" onclick="CQ();return false">CQ</button>
+                </li>
+            </ul>
+            <div class="btn-group button-group-sm"> 
+                <input type="text" class="form-control mr-1" style="max-width: 8rem" placeholder="CALL" id="dxCALL" maxlength="10" aria-label="Input group example" aria-describedby="btnGroupAddon">
+                    <button class="btn btn-primary mr-1" id="pingBUTTON" type="button" onclick="PING();return false">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-clipboard-data" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                            <path fill-rule="evenodd" d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                            <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
+                        </svg>
+
+
+                    </button>
+                    <button class="btn btn-success" id="connectBUTTON" type="button" onclick="CONNECTDISCONNECT();return false">
+                        <svg width="4em" height="1.8em" viewBox="0 0 16 16" class="bi bi-link-45deg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>
+                        </svg>
+                    </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <main role="main" class="container">
+        <div class="row justify-content-fluid-center mt-2">
+            <div class="col-4">
+                <div class="list-group overflow-auto" id="dxCALLList" role="tablist" style="min-height : 400px;">     
+                     <!--HIER KOMMEN DIE CHAT PARTNER REIN-->
+                </div>      
+            </div>
+            <div class="col-8 border rounded">
+                <div class="list-group overflow-auto" id="message-box" style="height:80vh;" > 
+                    <!--HIER KOMMEN DIE NACHRICHTEN REIN-->
+            </div>
+        </div>
+    </main>
+
+
+
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <form class="container-fluid justify-content-start">
+            <div class="input-group">
+                <button type="button" class="btn btn-secondary mr-1"  id="pttSTATUS" >
+                    <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-broadcast-pin" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 0 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM6 8a2 2 0 1 1 2.5 1.937V15.5a.5.5 0 0 1-1 0V9.937A2 2 0 0 1 6 8z"/>
+                    </svg>
+
+                </button>
+                <button type="button" class="btn btn-secondary mr-1" id="arqSTATUS" >IDLE</button>
+                <input type="text" class="form-control mr-1" placeholder="--- NEW MESSAGE ---" maxlength="250" id="messagebox" aria-label="Input group example" aria-describedby="btnGroupAddon">
+                <button type="button" class="btn btn-dark mr-1" id="sendARQBUTTON" onclick="NEWMSG();return false">
+                    <svg width="4em" height="1.3em" viewBox="0 0 16 16" class="bi bi-chat-left-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v11.586l2-2A2 2 0 0 1 4.414 11H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                        <path fill-rule="evenodd" d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+                <button class="btn btn-primary " type="button" id="sendBROADCASTBUTTON" onclick="BROADCAST();return false">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-broadcast" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                         <path fill-rule="evenodd" d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 0 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707z"/>
+                        <path d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+                     </svg>
+                </button>
+            </div>
+        </form>
+    </nav>
+
+
+<!--
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////                           SETTINGS MODAL           
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+    <div class="modal fade" id="settingsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Settings</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Callsign</span>
+                        <input type="text" class="form-control" id="myCALL" placeholder="AA1AA" aria-label="Callsign" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Locator</span>
+                        <input type="text" class="form-control" id="myGRID" placeholder="JN12ea" aria-label="Locator" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Webserver Port</span>
+                        <input type="text" class="form-control" id="WEBSERVERPort" placeholder="3000" aria-label="Webserver Port" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">ARDOP Host</span>
+                        <input type="text" class="form-control" id="ARDOPHost" placeholder="localhost" aria-label="ARDOP Host" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">ARDOP CMD Port</span>
+                        <input type="text" class="form-control" id="ARDOPCMDPort" placeholder="8515" aria-label="ARDOP CMD Port" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">ARDOP DATA Port</span>
+                        <input type="text" class="form-control" id="ARDOPDATAPort" placeholder="8516" aria-label="ARDOP DATA Port" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">ARDOP Loglevel</span>
+                        <input type="text" class="form-control" id="ARDOPLOGLevel" placeholder="0" aria-label="ARDOP Loglevel" aria-describedby="basic-addon1">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">ARQTIMEOUT 30-300</span>
+                        <input type="text" class="form-control" id="ARQTIMEOUT" placeholder="30" aria-label="ARQTIMEOUT" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">TUNERANGE 50-100-150-200-250</span>
+                        <input type="text" class="form-control" id="TUNERANGE" placeholder="0" aria-label="TUNERANGE" aria-describedby="basic-addon1">
+                    </div>        
+                    
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveSettings()" >Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script> 
+
+<script>
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////// ON CHANGES              
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    document.getElementById("dxCALL").onchange = function() { 
+        var dxCALL = document.getElementById("dxCALL").value.replace(/ /g,'');
+        //dxCALL = dxCALL.replace(/[^a-zA-Z0-9 ]/g, "")
+        if(dxCALL == 'BROADCAST'){
+            document.getElementById("connectBUTTON").disabled = true;
+            document.getElementById("pingBUTTON").disabled = true;
+            document.getElementById("sendBROADCASTBUTTON").disabled = false;
+            console.log('BROADCAST')
+
+        } else if (dxCALL != ''){
+            document.getElementById("connectBUTTON").disabled = false;
+            document.getElementById("pingBUTTON").disabled = false;
+            document.getElementById("sendBROADCASTBUTTON").disabled = false;
+            console.log('CALLSIGN')
+        } else {
+            document.getElementById("connectBUTTON").disabled = false;
+            document.getElementById("pingBUTTON").disabled = false;
+            document.getElementById("sendBROADCASTBUTTON").disabled = true;
+            console.log('ANYTHING ELSE')
+
+        } 
+    };
+
+    // small function for triggering an ONCHANGE event    
+    function triggerONCHANGE(id,dxCALL){
+        document.getElementById("dxCALL").value = dxCALL.replace(/ /g,'');
+        document.getElementById(id).dispatchEvent(new Event('change')); // TRIGGER ONCHANGE for dxCALL
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////RUF ALLE XXXXXXX SEKUNDEN DEN STATUS AB              
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    window.setInterval(function(){
+        loadJSON(window.location.href + 'status', function(data) {            
+    //  SET CONNECTION STATUS
+            if(data.arqSTATUS == 'CONNECTED'){
+                document.getElementById("arqSTATUS").classList.add("btn-success");
+                document.getElementById("arqSTATUS").classList.remove("btn-danger");
+                document.getElementById("arqSTATUS").classList.remove("btn-warning");
+                document.getElementById("arqSTATUS").classList.remove("btn-secondary");
+                //document.getElementById("arqSTATUS").innerHTML = 'CONNECTED';    		
+                
+
+                document.getElementById("arqSTATUS").innerHTML = '\
+                    <svg width="4em" height="1.8em" viewBox="0 0 16 16" class="bi bi-link-45deg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">\
+                        <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>\
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>\
+                        </svg>\
+                ';
+
+
+
+                //document.getElementById("connectBUTTON").innerHTML = 'DISCONNECT';    		
+                document.getElementById("connectBUTTON").value = 'DISCONNECT';    		
+
+                document.getElementById("connectBUTTON").classList.add("btn-danger");
+                document.getElementById("connectBUTTON").classList.remove("btn-warning");    
+                document.getElementById("connectBUTTON").classList.remove("btn-success");    
+
+                document.getElementById("connectBUTTON").disabled = false;    
+                document.getElementById("sendARQBUTTON").disabled = false;    
+                document.getElementById("pingBUTTON").disabled = true;    
+                document.getElementById("sendBROADCASTBUTTON").disabled = true;    
+
+            } else if (data.arqSTATUS == 'CONNECTING') {
+                document.getElementById("arqSTATUS").classList.add("btn-warning");
+                document.getElementById("arqSTATUS").classList.remove("btn-success");
+                document.getElementById("arqSTATUS").classList.remove("btn-danger");
+                document.getElementById("arqSTATUS").classList.remove("btn-secondary");
+                //document.getElementById("arqSTATUS").innerHTML = 'CONNECTING';    		
+                
+                document.getElementById("arqSTATUS").innerHTML = '\
+                    <svg width="4em" height="1.8em" viewBox="0 0 16 16" class="bi bi-link-45deg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">\
+                        <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>\
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>\
+                        </svg>\
+                ';
+
+
+
+                //document.getElementById("connectBUTTON").innerHTML = 'ABORT';    		
+                  document.getElementById("connectBUTTON").value = 'ABORT';    		
+
+                document.getElementById("connectBUTTON").classList.add("btn-warning");
+                document.getElementById("connectBUTTON").classList.remove("btn-danger");    
+                document.getElementById("connectBUTTON").classList.remove("btn-success");    
+
+                document.getElementById("sendARQBUTTON").disabled = true;    
+                document.getElementById("sendBROADCASTBUTTON").disabled = true;    
+                document.getElementById("pingBUTTON").disabled = true;    
+
+            } else if (data.arqSTATUS == 'DISCONNECTING') {
+                document.getElementById("arqSTATUS").classList.add("btn-warning");
+                document.getElementById("arqSTATUS").classList.remove("btn-success");
+                document.getElementById("arqSTATUS").classList.remove("btn-danger");
+                document.getElementById("arqSTATUS").classList.remove("btn-secondary");
+                //document.getElementById("arqSTATUS").innerHTML = 'DISCONNECTING';    		
+
+                document.getElementById("arqSTATUS").innerHTML = '\
+                    <svg width="4em" height="1.8em" viewBox="0 0 16 16" class="bi bi-link-45deg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">\
+                        <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>\
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>\
+                        </svg>\
+                ';
+
+
+
+                //document.getElementById("connectBUTTON").innerHTML = 'ABORT';    		
+                document.getElementById("connectBUTTON").value = 'ABORT';    		
+
+                document.getElementById("connectBUTTON").classList.add("btn-warning");
+                document.getElementById("connectBUTTON").classList.remove("btn-danger");    
+                document.getElementById("connectBUTTON").classList.remove("btn-success");      
+
+                document.getElementById("sendARQBUTTON").disabled = true;    
+                document.getElementById("sendBROADCASTBUTTON").disabled = true;    
+                document.getElementById("pingBUTTON").disabled = true;    
+
+            } else if (data.arqSTATUS == 'DISCONNECTED') {    		
+                document.getElementById("arqSTATUS").classList.add("btn-danger");
+                document.getElementById("arqSTATUS").classList.remove("btn-success");
+                document.getElementById("arqSTATUS").classList.remove("btn-warning");
+                document.getElementById("arqSTATUS").classList.remove("btn-secondary");
+                //document.getElementById("arqSTATUS").innerHTML = 'DISCONNECTED';  
+                
+                document.getElementById("arqSTATUS").innerHTML = '\
+                    <svg width="4em" height="1.8em" viewBox="0 0 16 16" class="bi bi-link-45deg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">\
+                        <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>\
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>\
+                        </svg>\
+                ';
+
+
+
+                //document.getElementById("connectBUTTON").innerHTML = 'CONNECT';    		
+                document.getElementById("connectBUTTON").value = 'CONNECT';    		
+
+                document.getElementById("connectBUTTON").classList.add("btn-success");
+                document.getElementById("connectBUTTON").classList.remove("btn-danger");    
+                document.getElementById("connectBUTTON").classList.remove("btn-warning");    
+
+                document.getElementById("sendARQBUTTON").disabled = false;    
+                document.getElementById("sendBROADCASTBUTTON").disabled = false;    
+                document.getElementById("pingBUTTON").disabled = false;    
+
+            } else if (data.arqSTATUS == 'FAILED') {    		
+                document.getElementById("arqSTATUS").classList.add("btn-danger");
+                document.getElementById("arqSTATUS").classList.remove("btn-success");
+                document.getElementById("arqSTATUS").classList.remove("btn-warning");
+                document.getElementById("arqSTATUS").classList.remove("btn-secondary");	
+                //document.getElementById("arqSTATUS").innerHTML = 'FAILED';    		
+
+                document.getElementById("arqSTATUS").innerHTML = '\
+                    <svg width="4em" height="1.8em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">\
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>\
+                        <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>\
+                    </svg>\
+                ';
+
+
+
+
+                //document.getElementById("connectBUTTON").innerHTML = 'CONNECT';    		
+                document.getElementById("connectBUTTON").value = 'FAILED';    		
+
+                document.getElementById("connectBUTTON").classList.add("btn-success");
+                document.getElementById("connectBUTTON").classList.remove("btn-danger");    
+                document.getElementById("connectBUTTON").classList.remove("btn-warning");    
+    
+                document.getElementById("sendARQBUTTON").disabled = true;    
+                document.getElementById("sendBROADCASTBUTTON").disabled = false;    
+                document.getElementById("pingBUTTON").disabled = false;    
+
+            } else {
+                document.getElementById("arqSTATUS").classList.add("btn-secondary");
+                document.getElementById("arqSTATUS").classList.remove("btn-success");
+                document.getElementById("arqSTATUS").classList.remove("btn-warning");    
+                document.getElementById("arqSTATUS").classList.remove("btn-danger");    
+                document.getElementById("arqSTATUS").innerHTML = 'IDLE';    		
+
+                //document.getElementById("connectBUTTON").innerHTML = 'CONNECT';    		
+                document.getElementById("connectBUTTON").value = 'CONNECT';    		
+
+                document.getElementById("connectBUTTON").classList.add("btn-success");
+                document.getElementById("connectBUTTON").classList.remove("btn-danger");    
+                document.getElementById("connectBUTTON").classList.remove("btn-warning");    
+
+                document.getElementById("sendARQBUTTON").disabled = true;    
+                document.getElementById("sendBROADCASTBUTTON").disabled = false;     
+                   document.getElementById("pingBUTTON").disabled = false;    
+
+            }    	
+
+    //  SET PTT STATUS    	
+            if(data.pttSTATUS == false){
+                document.getElementById("pttSTATUS").classList.add("btn-success");
+                document.getElementById("pttSTATUS").classList.remove("btn-danger");
+                document.getElementById("pttSTATUS").classList.remove("btn-secondary");
+            } else if (data.pttSTATUS == true) {
+                document.getElementById("pttSTATUS").classList.add("btn-danger");
+                document.getElementById("pttSTATUS").classList.remove("btn-success");
+                document.getElementById("pttSTATUS").classList.remove("btn-secondary");
+            } else {
+                document.getElementById("pttSTATUS").classList.add("btn-secondary");
+            }    	        	   	
+        }, function(xhr) { console.error(xhr); }
+    )}, 200);
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////RUF ALLE XXXXXXX SEKUNDEN NEUE CALLSIGNS AB              
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    var displayedCallsigns = 0; // Counter for Refreshing DIV only if new entry available
+    
+    window.setInterval(function(){
+        loadJSON(window.location.href + 'callsigns', function(data) {
+            var arr = [];
+	        arr.splice(0, arr.length);
+	        
+            for (var i = 0; i < data.length; i++){
+                var obj = data[i];
+                var callsign = '<a class="list-group-item list-group-item-action" data-toggle="list" href="#' + obj + ' " id=" ' + obj + ' " role="tab" onClick="triggerONCHANGE(\'dxCALL\',this.id); loadMessages(this.id,0)">' + obj + '</a>';
+                arr.push(callsign);
+            // Counter for Refreshing DIV only if new entry available
+                if(displayedCallsigns < arr.length){
+                    var tag_id = document.getElementById('dxCALLList');
+                    tag_id.innerHTML = arr.join(" ");
+                    window.displayedCallsigns = arr.length;
+                    //document.getElementById('message-box').scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+                    //document.getElementById('message-box').scrollTo({ left: 0, top: 99999, behavior: "smooth" });
+                }
+            }
+       }, function(xhr) { console.error(xhr); }
+    )}, 500);
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////RUF ALLE XXXXXXX SEKUNDEN NEUE NACHRICHTEN AB              
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    var displayedMessages = 0; // Counter for Refreshing DIV only if new entry available
+        window.setInterval(function(){
+            var callsign = document.getElementById("dxCALL").value;
+            loadMessages(callsign,displayedMessages);
+    }, 500);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////FUNKTION FÜR NACHRICHTENABRUF              
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    function loadMessages(callsign,displayedMessages){
+        document.getElementById("dxCALL").value = callsign.replace(/ /g,''); // SET dxCALL
+
+            loadJSON(window.location.href + 'messages?dxCALL='+callsign.replace(/ /g,''), function(data) {
+            //console.log(data);
+                var arr = [];
+                arr.splice(0, arr.length);
+            
+                for (var i = 0; i < data.length; i++){
+                    var obj = data[i];
+                    var timestamp =  parseInt(obj["id"]);
+                    var timeframe = new Date(timestamp).toISOString();
+                    //console.log(new Intl.DateTimeFormat('en-GB').format(timestamp));
+
+                    var received = '<div class="media w-75 mb-3">\
+                            <div class="media-body ml-3 mb-4">\
+                            <div class="bg-light rounded py-2 px-3 mb-2">\
+                            <p class="text-small mb-0 text-muted text-break">'+ obj["message"] +'</p>\
+                            </div>\
+                            <p class="small text-muted">' + timeframe+'</p>\
+                            </div>\
+                            </div>\
+                            ';
+                    var send = '<div class="media w-75 ml-auto mb-3">\
+                            <div class="media-body mb-4">\
+                            <div class="bg-primary rounded py-2 px-3 mb-2">\
+                            <p class="text-small mb-0 text-white text-break">' + obj["message"] +'</p>\
+                            </div>\
+                            <p class="small text-muted">' + timeframe +'</p>\
+                            </div>\
+                            </div>\
+                            ';
+                            
+                    var info = '<div class="media w-75 ml-auto mb-3">\
+                                    <span class="badge bg-secondary">' + timeframe +' </span> - <span class="badge bg-secondary">' + obj["message"] +'</span>\
+                                    </div>\
+                            ';    
+                                
+                    var ping = '<div class="media w-75 ml-auto mb-3">\
+                                    <span class="badge bg-secondary">' + timeframe +' </span> - <span class="badge bg-secondary">' + obj["message"] +'</span>\
+                                    </div>\
+                            ';        
+                    var cq = '<div class="media w-75 ml-auto mb-3">\
+                                    <span class="badge bg-secondary">' + timeframe +' </span> - <span class="badge bg-secondary">' + obj["message"] +'</span>\
+                                    </div>\
+                            ';        
+                    var broadcast = '<div class="media w-75 ml-auto mb-3">\
+                            <div class="media-body mb-4">\
+                            <div class="bg-primary rounded py-2 px-3 mb-2">\
+                            <p class="text-small mb-0 text-white text-break">' + obj["message"] +'</p>\
+                            </div>\
+                            <p class="small text-muted">' + timeframe +'</p>\
+                            </div>\
+                            </div>\
+                            ';                 
+                    var error = '<div class="media w-50 ml-auto mb-3">\
+                                    <span class="badge bg-danger">unknown error</span>\
+                                    </div>\
+                            ';                                                 
+                        if ( obj['direction'] == 'RECEIVED' && obj['type'] == 'MESSAGE'){
+                            arr.push(received);
+                        } else if ( obj['direction'] == 'SEND' && obj['type'] == 'MESSAGE'){
+                            arr.push(send);                    
+                        } else if ( obj['type'] == 'INFO' ){
+                            arr.push(info);  
+                        } else if ( obj['type'] == 'PING' ){
+                            arr.push(ping);  
+                        } else if ( obj['type'] == 'CQ' ){
+                            arr.push(cq);  
+                        } else if ( obj['type'] == 'BROADCAST' ){
+                            arr.push(broadcast);  
+                        } else {
+                            arr.push(error);
+                        }
+                }
+                
+            // Counter for Refreshing DIV only if new entry available
+                if(displayedMessages < arr.length){
+                    var tag_id = document.getElementById('message-box');
+                    tag_id.innerHTML = arr.join(" ");
+                    window.displayedMessages = arr.length;
+                    ///////document.getElementById('message-box').scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+                    document.getElementById('message-box').scrollTo({ left: 0, top: 99999, behavior: "smooth" });
+                }                 
+            },function(xhr) { console.error(xhr); });
+    }
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////ALLGEMEINE FUNKTIONEN            
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// ------------------------------- TEST
+    function TEST() {
+        var cmd = 'newcommand=TEST';
+        var url = 'newcommand';
+        post(url,cmd);
+    }
+
+// ------------------------------- CQ
+    function CQ() {
+        var cmd = 'newcommand=CQ';
+        var url = 'newcommand';
+        post(url,cmd);
+    }
+
+// ------------------------------- PING
+    function PING() {
+        var callsign = document.getElementById("dxCALL").value;
+        var cmd = 'newcommand=PING&callsign='+callsign.replace(/ /g,'');
+        var url = 'newcommand';
+        post(url,cmd);
+    }
+
+
+
+
+// ------------------------------- CONNECTDISCONNECT
+    function CONNECTDISCONNECT() {
+//        var status = document.getElementById("connectBUTTON").innerHTML;
+          var status = document.getElementById("connectBUTTON").value;
+          var callsign = document.getElementById("dxCALL").value;
+
+
+
+
+
+        if(status == 'CONNECT'){
+            var cmd = 'newcommand=ARQCALL&callsign='+callsign.replace(/ /g,'');
+            var url = 'newcommand';
+            post(url,cmd);
+        }  
+        
+        if(status == 'DISCONNECT'){
+            var cmd = 'newcommand=DISCONNECT';
+            var url = 'newcommand';
+            post(url,cmd);
+        }  
+            
+        if(status == 'ABORT'){
+            var cmd = 'newcommand=ABORT';
+            var url = 'newcommand';
+            post(url,cmd);
+        }  	
+    }
+
+// ------------------------------- NEWMSG
+    function NEWMSG() {
+        var message = document.getElementById('messagebox').value;
+        var cmd = 'newcommand=NEWMSG&type=MESSAGE&mode=ARQ&message=' + message;
+        var url = 'newcommand';
+        post(url,cmd);
+        
+        document.getElementById('messagebox').value = '';
+        
+    }
+
+// ------------------------------- BROADCAST
+    function BROADCAST() {
+
+        var message = document.getElementById('messagebox').value;
+        var cmd = 'newcommand=NEWMSG&type=BROADCAST&mode=FEC&message=' + message;
+        var url = 'newcommand';
+        post(url,cmd);
+
+        var cmd = 'newcommand=FECSEND';
+        var url = 'newcommand';
+        post(url,cmd);
+        document.getElementById('messagebox').value = '';
+
+    }
+
+
+// ------------------------------- SAVE SETTINGS FUNKTION
+    function saveSettings() {
+        var myCALL = document.getElementById("myCALL").value;   
+        var myGRID = document.getElementById("myGRID").value;
+        var WEBSERVERPort = document.getElementById("WEBSERVERPort").value;
+        var ARDOPHost = document.getElementById("ARDOPHost").value;
+        var ARDOPLOGLevel = document.getElementById("ARDOPLOGLevel").value;
+        var ARDOPCMDPort = document.getElementById("ARDOPCMDPort").value;
+        var ARDOPDATAPort = document.getElementById("ARDOPDATAPort").value;
+        var ARQTIMEOUT = document.getElementById("ARQTIMEOUT").value;
+        var TUNERANGE = document.getElementById("TUNERANGE").value;
+        var url = 'settings';
+        var cmd = 'myCALL=' + myCALL + '&myGRID=' + myGRID + '&WEBSERVERPort=' + WEBSERVERPort + '&ARDOPHost=' + ARDOPHost + '&ARDOPLOGLevel=' + ARDOPLOGLevel + '&ARDOPCMDPort=' + ARDOPCMDPort + '&ARDOPDATAPort=' + ARDOPDATAPort + '&TUNERANGE=' + TUNERANGE + '&ARQTIMEOUT=' + ARQTIMEOUT;
+        post(url,cmd);
+
+    }
+//' ------------------------------- LOAD SETTINGS FUNKTION
+    function loadSettings() {
+        loadJSON(window.location.href + 'settings', function(data) {
+            document.getElementById("myCALL").value = data.myCALL;
+            document.getElementById("myGRID").value = data.myGRID;
+            document.getElementById("WEBSERVERPort").value = data.WEBSERVERPort;
+            document.getElementById("ARDOPHost").value = data.ARDOPHost;
+            document.getElementById("ARDOPLOGLevel").value = data.ARDOPLOGLevel;
+            document.getElementById("ARDOPCMDPort").value = data.ARDOPCMDPort;
+            document.getElementById("ARDOPDATAPort").value = data.ARDOPDATAPort;
+            document.getElementById("ARQTIMEOUT").value = data.ARQTIMEOUT;
+            document.getElementById("TUNERANGE").value = data.TUNERANGE;
+        },function(xhr) { console.error(xhr); }
+        );
+    }
+
+// ------------------------------- POST FUNKTION
+    function post(path, params, method='post') {
+        console.log(window.location.href + path);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", window.location.href + path, true);
+            //Send the proper header information along with the request
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() { // Call a function when the state changes.
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                // Request finished. Do processing here.
+                }
+            }
+            xhr.send(params);
+    }
+
+// ------------------------------- GET FUNKTION
+    function loadJSON(path, success, error){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function()
+        {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    if (success)
+                        success(JSON.parse(xhr.responseText));
+                } else {
+                    if (error)
+                        error(xhr);
+                }
+            }
+        };
+        xhr.open("GET", path, true);
+        xhr.send();
+    }
+
+
+</script>
+</body>
+</html>

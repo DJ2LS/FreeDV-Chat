@@ -1,0 +1,19 @@
+{
+  "usersettings": [
+    {
+      "myCALL": "DJ2LS",
+      "myGRID": "JN48ea"
+    }
+  ],
+  "tncsettings": [
+    {
+      "ARDOPHost": "10.211.55.4",
+      "WEBSERVERPort": "3000",
+      "ARDOPCMDPort": "8515",
+      "ARDOPDATAPort": "8516",
+      "ARDOPLOGLevel": "0",
+      "ARQTIMEOUT": "30",
+      "TUNERANGE": "200"
+    }
+  ]
+}
